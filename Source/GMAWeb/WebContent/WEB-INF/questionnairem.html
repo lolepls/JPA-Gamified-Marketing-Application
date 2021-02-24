@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Questionnaire</title>
+</head>
+<body>
+<p th:text="'Your daily questionnaire is about ' + ${productName}"></p>
+<img class = "productimage" th:src="@{'data:image/png;base64,'+ ${productImage}}"></img>
+<div id = "questionnairem" class = "form">
+    <form name="Marketing" action="GoToStatQuestionnaire"  method="POST">
+    
+    		<div th:each="question : ${productQuestions}">
+    		
+  				 <p th:text="${question.text}"></p>
+  				 
+  				 <div th:if = "${useranswers==null}">
+  				 <p><input type="text" th:name="${question.id}" placeholder="Type your answer here" required></p>
+  				 </div>
+  				 
+  				 <div th:if = "${useranswers!=null}">
+  				 <p><input type="text" th:name="${question.id}" th:value="${useranswers[productQuestions.indexOf(question)]}" required></p>
+  				 </div>
+  				 
+  				
+  				 
+ 			</div>
+		 <input type="submit" value="Next">
+    </form>
+  </div>
+</body>
+</html>

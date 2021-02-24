@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<head>
+<meta charset="ISO-8859-1">
+<title>Signup page</title>
+</head>
+<body>
+
+    <div id = "text" class = "welcome-txt">
+    Choose an username and a password and climb the leaderboard!
+  </div>
+  
+  <div id = "signupform" class = "form">
+    <form name="login" action="CreateUser"  method="POST">
+<p><input type="text" name="username" placeholder="Username"></p>
+<p><input type="text" name="email" placeholder="e-mail"></p>
+<p><input type="password" name="password" placeholder="Password"></p>
+ <input type="submit" value="Register">
+ <p th:text=" ${errorMsg}"></p>
+    </form>
+  </div>
+  
+</body>
+</html>

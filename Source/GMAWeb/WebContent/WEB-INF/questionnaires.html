@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Questionnaire - Statistical</title>
+</head>
+<body>
+<p>Le risposte alle domande sono:</p>
+<div th:each="answer : ${useranswers}">
+  				 <p th:text="'- ' + ${answer}"></p>
+ 			</div>
+<div id = "backbutton" class = "form">
+  	 <form name="backtoquestionnairem" action="BackToMarketing" method="POST">
+      <button type="submit" class="Button">Previous</button>
+    </form>
+    </div>
+    
+    <div id = "cancelbutton" class = "form">
+  	 <form name="backtoquestionnairem" action="CancelQuestionnaire" method="POST">
+      <button type="submit" class="Button">Cancel and exit</button>
+    </form>
+    </div>
+    
+    <div id = "statisticalSection" class = "form">
+    <form name="StatisticalSection" action="SubmitQuestionnaire" method="POST">
+      <p>Do you want to help us collecting statistical data?</p>
+      <p>Are you a man or a woman?</p>
+      
+      <input type="radio" id="male" name="sex" value="m">
+		<label for="man">Man</label><br>
+		<input type="radio" id="female" name="sex" value="f">
+		<label for="woman">Woman</label><br>
+		<input type="radio" id="null" name="sex" value="u">
+		<label for="other">I don't want to answer</label>
+		
+		<p><label for="quantity">How old are you? Leave blank if you don't want to answer.</label>
+		<input type="number" id="age" name="age" min="0" max="120" placeholder="Type your age here">
+		</p>
+		
+		<p>What is your expertise level?</p>
+      <input type="radio" id="low" name="explevel" value="low">
+		<label for="male">Low</label><br>
+		<input type="radio" id="medium" name="explevel" value="medium">
+		<label for="female">Medium</label><br>
+		<input type="radio" id="high" name="explevel" value="high">
+		<label for="female">High</label><br>
+		<input type="radio" id="null" name="explevel" value="null">
+		<label for="other">I don't want to answer</label>
+		
+		
+     <p> <button type="submit" class="endquestionnairebutton">Submit questionnaire</button></p>
+    </form>
+    
+    </div>
+</body>
+</html>

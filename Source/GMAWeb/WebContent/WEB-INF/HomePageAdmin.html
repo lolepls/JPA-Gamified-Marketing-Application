@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Admin HomePage</title>
+</head>
+<body>
+
+<p th:text="${'Welcome back ' + session.admin + '!'}"></p>
+
+<div id = "creationpage" class = "form">
+  	 <form name="creationpage" action="GoToCreationPage" method="POST">
+      <button type="submit" class ="button">Add a new product</button>
+    </form>
+  </div>
+  
+  
+    <div id = "inspectionpage" class = "form">
+  	 <form name="inspectionpage" action="GoToInspectionPage" method="POST">
+      <button type="submit" class="button">See questionnaire data</button>
+    </form>
+    </div>
+    
+    <div id = "deletionpage" class = "form">
+  	 <form name="deletionpage" action="GoToDeletionPage" method="POST">
+      <button type="submit" class="button">Delete a questionnaire</button>
+    </form>
+    </div>
+    
+    <div id = "badwordspage" class = "form">
+  	 <form name="badwordspage" action="GoToBadwords" method="POST">
+      <button type="submit" class="button">Add a bad word</button>
+    </form>
+    </div>
+    
+   <div id = "logoutbutton" class = "logoutbutton">
+  	 <form name="logoutbutton" action="Logout" method="POST">
+      <button type="submit" class="Button">Logout</button>
+    </form>
+    </div>
+</body>
+</html>

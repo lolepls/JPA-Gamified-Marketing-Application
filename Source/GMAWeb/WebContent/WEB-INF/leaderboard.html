@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Leaderboard</title>
+</head>
+<body>
+
+<p>Who is the best player? This is the leaderboard!</p>
+
+<table>
+		<thead>
+			<tr>
+				<th>Player</th>
+				<th>Score</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="p : ${players}">
+				<td th:text="${p.username}"></td>
+				<td th:text="${p.score}"></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<form name="login" action="BackToHomePage" method="POST">
+      <input type="submit" value="Back to Homepage">
+    </form>
+    
+</body>
+</html>

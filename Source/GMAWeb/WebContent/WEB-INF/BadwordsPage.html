@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Badwords</title>
+</head>
+<body>
+	
+	<div id = "text" class = "welcome-txt">
+    Add a new bad word
+  	</div>
+  	
+  	<div id = "badword" class = "form">
+	  <form name="badword" action="CreateBadword"  method="POST">
+	
+			<p>
+			<label for="badword">Write here the new bad word to insert:</label>
+			<input type="text" name="badword" placeholder="Badword">
+			</p>
+			
+			
+ 				<p th:text=" ${errorMsg}" class="errorMessage"></p>
+			<input type="submit" value="Submit">
+	    </form>
+	    
+  	</div>
+	
+	
+</body>
+</html>

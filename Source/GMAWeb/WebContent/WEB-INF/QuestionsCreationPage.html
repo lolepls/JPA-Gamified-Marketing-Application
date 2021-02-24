@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>New Question</title>
+</head>
+<body>
+	
+	<div id = "text" class = "welcome-txt">
+    Add a question for the new product
+  	</div>
+  	
+  	<div id = "question" class = "form">
+	  <form name="question" action="CreateQuestion"  method="POST">
+	
+			<p>
+			<label for="question">Write here the new question:</label>
+			<input type="text" name="question" placeholder="Question">
+			</p>
+			
+			
+ 				<p th:text=" ${errorMsg}" class="errorMessage"></p>
+			<input type="submit" value="Submit and add another question">
+	    </form>
+	    
+  	</div>
+  	
+  	
+  	<div id = "completequestions" class = "form">
+  	 <form name="login" action="ComputePoints" method="POST">
+      <button type="submit" class ="button">Complete and compute points</button>
+    </form>
+  </div>
+	
+	
+</body>
+</html>
