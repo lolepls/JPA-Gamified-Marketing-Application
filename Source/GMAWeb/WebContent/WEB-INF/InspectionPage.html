@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Select a date</title>
+</head>
+<body>
+		
+		<div id = "text" class = "welcome-txt">
+    Select a date to visualize the information about the POD questionnaire of that day
+  	</div>
+	
+	<div id = "poddate" class = "form">
+	  <form name="poddate" action="GoToQuestionnaireData"  method="POST">
+			
+			<p>
+			<label for="date">Insert the date of the POD (yyyy-mm-dd):</label>
+			<input type="text" name="date" placeholder="POD date">
+			</p>
+			
+ 				<p th:text=" ${errorMsg}" class="errorMessage"></p>
+			<input type="submit" value="Next">
+	    </form>
+  	</div>
+		
+		
+</body>
+</html>

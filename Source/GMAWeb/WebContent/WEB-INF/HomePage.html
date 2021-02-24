@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>HomePage</title>
+</head>
+<body>
+
+	<p th:text="${'Nice to see you again ' + session.user}"></p>
+	<p th:text="${'The product of the day is ' + productName}"></p>
+	<img class = "productimage" th:src="@{'data:image/png;base64,'+ ${productImage}}"></img>
+	
+	<table>
+	    <thead>
+	        <tr>
+	            <th> Review </th>
+	            <th> Author </th>
+	        </tr>
+	    </thead>
+	    <tbody>
+		<tr th:if="${productReviews.empty}">
+	            <td colspan="2"> No Reviews Available </td>
+	        </tr>
+	        <tr th:each="review : ${productReviews}">
+	            <td><span th:text="${review.text}"> Review </span></td>
+	            <td><span th:text="${review.user.username}"> Author </span></td>
+	        </tr>
+	    </tbody>
+	</table>	
+	
+	<p th:text="${errormsg}"></p>
+	
+	<div th:if = "${buttonEnabled}">
+	<div id = "questionnbutton" class = "form">
+  	 <form name="gotoquestionnaires" action="GoToMarketingQuestionnaire" method="POST">
+      <button type="submit" class="Button">Take the questionnaire!</button>
+    </form>
+    </div>
+    </div>
+
+	<div th:if = "${!buttonEnabled}">
+	<p class = "errorMessage" th:text = "${disableMessage}"></p>    
+	</div>
+	
+	<div id = "logoutbutton" class = "logoutbutton">
+	<p>Want to see who is the best?</p>
+  	 <form name="gotoleaderboard" action="GoToLeaderboard" method="POST">
+      <button type="submit" class="Button">Leaderboard</button>
+    </form>
+    </div>
+    
+	<div id = "logoutbutton" class = "logoutbutton">
+  	 <form name="logoutbutton" action="Logout" method="POST">
+      <button type="submit" class="Button">Logout</button>
+    </form>
+    </div>
+
+</body>
+</html>

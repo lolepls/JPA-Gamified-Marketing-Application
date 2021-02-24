@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Creation Page</title>
+</head>
+<body>
+
+	<div id = "text" class = "welcome-txt">
+    Choose a name, an image and a date for the new product
+  	</div>
+	
+	<div id = "product" class = "form">
+	  <form name="productname" action="CreateProduct"  method="POST">
+	
+			<p>
+			<label for="productName">Write a name for the new product:</label>
+			<input type="text" name="productName" placeholder="Product Name">
+			</p>
+			
+			<p>
+			<label for="image">Select an image (.png):</label>
+			<input type="file" id="image" name="image">
+			</p>
+			
+			<p>
+			<label for="date">Insert the date of the POD (yyyy-mm-dd):</label>
+			<input type="text" name="date" placeholder="POD date">
+			</p>
+			
+ 				<p th:text=" ${errorMsg}" class="errorMessage"></p>
+			<input type="submit" value="Next">
+	    </form>
+  	</div>
+</body>
+</html>

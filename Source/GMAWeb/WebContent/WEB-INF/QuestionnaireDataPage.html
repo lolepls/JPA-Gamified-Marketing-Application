@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Questionnaire Data</title>
+</head>
+<body>
+
+	<p th:text="${'Data related to the questionnaire about the Product of the Day : ' + date}"></p>
+
+	<table id = "answered">
+	    <thead>
+	        <tr>
+	            <th> Players who answered the questionnaire </th>
+	            <th> PlayerID </th>
+	        </tr>
+	    </thead>
+	    <tbody>
+		<tr th:if="${playersWithAnswers.empty}">
+	            <td colspan="2"> No players have answered </td>
+	    </tr>
+	        <tr th:each="player : ${playersWithAnswers}">
+	            <td><span th:text="${player.username}"> Players who answered the questionnaire   </span></td>
+	            <td><span th:text="${player.id}"> PlayerID </span></td>
+	            
+	            
+	        </tr>
+	    </tbody>
+	</table>	
+	
+	
+	<table id = "cancelled">
+	    <thead>
+	        <tr>
+	            <th> Players who cancelled the questionnaire   </th>
+	            <th> PlayerID </th>
+	            
+	        </tr>
+	    </thead>
+	    <tbody>
+		<tr th:if="${playersWhoCancelled.empty}">
+	            <td colspan="2"> No players have cancelled this questionnaire </td>
+	    </tr>
+	        <tr th:each="player : ${playersWhoCancelled}">
+	            <td><span th:text="${player.username}"> Players who cancelled the questionnaire  </span></td>
+	            <td><span th:text="${player.id}"> PlayerID </span></td>
+	            
+	            
+	        </tr>
+	    </tbody>
+	</table>	
+	
+	
+
+	
+	<table id = "answers" style = "float: right">
+	    <thead>
+	        <tr>
+	            <th> PlayerID of who answered the questionnaire </th>
+	          	<th> Question </th>
+	            <th> Answers </th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr th:each="answer : ${answers}">
+	            <td><span th:text="${answer.player_id}"> Player ID of who answered the questionnaire </span></td>
+	            <td><span th:text="${answer.question.text}"> Question </span></td>
+	            <td><span th:text="${answer.text}"> Answers </span></td>
+	        </tr>
+	    </tbody>
+	</table>	
+	
+	<div id = "adminhomepage" class = "form">
+  	 <form name="adminhomepage" action="LoadHomePageAdmin" method="POST">
+      <button type="submit" class ="button">Return to Home Page</button>
+    </form>
+  </div>
+</body>
+</html>

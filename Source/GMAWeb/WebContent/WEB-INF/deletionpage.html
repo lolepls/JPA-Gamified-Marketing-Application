@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Deletion page</title>
+</head>
+<body>
+
+It's time to delete a questionnaire! 
+Press "delete" to remove the questionnaire associated to the product.
+This will also revoke the points that have been gained by the players when
+they took the questionnaire, so be careful!
+
+<div th:if = "${products.empty}">
+There are no questionnaires that you can delete.
+</div>
+<div th:if = "${!products.empty}">
+<table>
+		<thead>
+			<tr>
+				<th>Product name | </th>
+				<th>Date of questionnaire | </th>
+				<th>Delete questionnaire </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="p : ${products}">
+				<td th:text="${p.getName()}"></td>
+				<td th:text="${p.getDate()}"></td>
+				<td><a th:href="@{/DeleteProduct(productid=${p.id})}">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p th:text = "${deletionmsg}"></p>
+
+<form name="back" action="LoadHomePageAdmin" method="POST">
+      <button type="submit" class ="button">Back to home</button>
+    </form>
+
+</body>
+</html>

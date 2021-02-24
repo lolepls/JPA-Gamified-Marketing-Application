@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<head>
+<meta charset="ISO-8859-1">
+<title>Login page</title>
+</head>
+<body>
+
+    <div id = "text" class = "welcome-txt">
+    Are you an administrator? Log in here to access the control panel.
+  </div>
+  
+  <div id = "Loginform" class = "form">
+    <form name="login" action="CheckAdminAuthentication"  method="POST">
+<p><input type="text" name="username" placeholder="Username"></p>
+<p><input type="password" name="password" placeholder="Password"></p>
+ <input type="submit" value="Login">
+ <p th:text=" ${errorMsg}"></p>
+    </form>
+  </div>
+  
+</body>
+</html>
